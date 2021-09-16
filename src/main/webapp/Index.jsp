@@ -1,3 +1,10 @@
+<%-- 
+    Document   : Index
+    Created on : 15/09/2021, 08:49:47 PM
+    Author     : Santiago Hernandez
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +16,7 @@
     <div>
         <div>
             <div>
-                <form method="post" action="action">
+                <form action="UserControler" method="POST" >
                     <div>
                         <label>User:</label> 
                         <input type="text" name="txtUser">
