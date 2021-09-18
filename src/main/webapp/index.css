@@ -1,0 +1,55 @@
+* {
+    background: aliceblue;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+form {
+    margin-left: 25%;
+    display: flex;
+    border: #29232f solid;
+    width: 50%;
+    flex-direction: column;
+    padding: 15px;
+    align-items: stretch;
+    border-radius: 10px;
+    background: rgb(164, 25, 32);
+    color: black;
+    font-weight: bold;
+}
+
+.inputs {
+    background: rgb(165, 25, 32);
+}
+
+label {
+    background: rgb(165, 25, 25);
+}
+
+#user {
+    margin-left: 39px;
+}
+
+input {
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+#enviar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: larger;
+    color: white;
+    background-color: black;
+}
+
+img {
+    margin-top: 15%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
