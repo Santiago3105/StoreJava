@@ -33,7 +33,8 @@ public class UserControler extends HttpServlet {
                 String pass = request.getParameter("txtPass");
                 userBE = userDAO.Login(user, pass);
                 if(userBE.getName() != null){
-                    request.getRequestDispatcher("RoutesUser?Page=Principal").forward(request, response);
+                    request.getRequestDispatcher("/Auth/Principal.jsp").forward(request, response);
+                    //request.getRequestDispatcher("RoutesUser?Page=Principal").forward(request, response);
                 }else{
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
