@@ -27,8 +27,32 @@ public class UserControler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String accion = request.getParameter("Login");
-            if (accion.equals("Ingresar")){
+            String accion = "";
+            accion=request.getParameter("Register");
+            if(accion != null){
+                if (accion.equals("Ingresar")){
+                    String nombres = request.getParameter("txtName");
+                    String identificacion = request.getParameter("txtIdent");
+                    String email = request.getParameter("txtEmail");
+                    String contraseña = request.getParameter("txtPass");
+                    
+                    userBE.setName(nombres);
+                    userBE.setEmail(email);
+                    userBE.setPasswor(contraseña);
+
+                    if(userDAO.Registro(userBE)){
+                        request.getRequestDispatcher("Index.jsp").forward(request, response);
+                    }
+                    else{
+                        request.getRequestDispatcher("Registrar.jsp").forward(request, response);
+                    }
+
+                }
+            }
+  
+            accion = request.getParameter("Login");
+            if(accion != null){
+                if (accion.equals("Ingresar")){
                 String user = request.getParameter("txtUser");
                 String pass = request.getParameter("txtPass");
                 userBE = userDAO.Login(user, pass);
@@ -38,10 +62,12 @@ public class UserControler extends HttpServlet {
                 }else{
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
+                }
+                else{
+                    request.getRequestDispatcher("index.jsp").forward(request, response);      
+                } 
             }
-            else{
-                request.getRequestDispatcher("index.jsp").forward(request, response);      
-            }        
+                   
     }
 
  

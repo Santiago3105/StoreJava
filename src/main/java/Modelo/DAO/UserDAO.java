@@ -37,4 +37,26 @@ public class UserDAO {
        return userBE;
     }
     
+    public boolean Registro(UserBE NewUser){
+        
+        String sql="INSERT INTO usuarios (Nombre, Email,Contraseña) VALUES (?, ?, ?);";
+        try{
+            cn = new Conexion();
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,NewUser.getName());
+            ps.setString(3,NewUser.getEmail());
+            ps.setString(5,NewUser.getPasswor());
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+            return true;
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    
 }
