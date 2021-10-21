@@ -30,7 +30,7 @@ public class UserControler extends HttpServlet {
             String accion = "";
             accion=request.getParameter("Register");
             if(accion != null){
-                if (accion.equals("Ingresar")){
+                if (accion.equals("Registrar")){
                     String nombres = request.getParameter("txtName");
                     String identificacion = request.getParameter("txtIdent");
                     String email = request.getParameter("txtEmail");
@@ -57,6 +57,23 @@ public class UserControler extends HttpServlet {
                 String pass = request.getParameter("txtPass");
                 userBE = userDAO.Login(user, pass);
                 if(userBE.getName() != null){
+                    request.getRequestDispatcher("/Auth/Principal.jsp").forward(request, response);
+                    //request.getRequestDispatcher("RoutesUser?Page=Principal").forward(request, response);
+                }else{
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
+                }
+                else{
+                    request.getRequestDispatcher("index.jsp").forward(request, response);      
+                } 
+            }
+            
+            accion = request.getParameter("Delete");
+            if(accion != null){
+                if (accion.equals("Eliminar")){
+                int userid = Integer.parseInt(request.getParameter("txtUserId"));
+                
+                if(userDAO.UserDeleteCommand(userid)){
                     request.getRequestDispatcher("/Auth/Principal.jsp").forward(request, response);
                     //request.getRequestDispatcher("RoutesUser?Page=Principal").forward(request, response);
                 }else{

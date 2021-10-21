@@ -31,7 +31,7 @@
                     <label>Clave:</label> 
                     <input type="text" name="txtPass">
                 </div>
-                <input id="enviar" type="submit" name="Register" value="Ingresar">
+                <input id="enviar" type="submit" name="Register" value="Registrar">
             </form>
         </div>       
     </body>
